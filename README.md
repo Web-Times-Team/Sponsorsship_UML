@@ -1,2 +1,2 @@
 # Sponsorsship_UML
-database, frond-end, back-end modelisation
+database, frond-end, back-end modelling

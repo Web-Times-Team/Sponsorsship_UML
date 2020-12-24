@@ -1,0 +1,26 @@
+/** relational shemas **/
+
+students (STUTENDID, lastName, firstName, middleName, dateOfBirth, country, photo, school)
+sponsors (SPONSORSID, lastName, firstName, middleName, dateOfBirth, country, photo)
+sponsorsship (STUDENTID, SPONSORID, date)
+talents (TALENTID, lastName, firstName, middleName, dateOfBirth, country, photo, skill)
+donors (DONORID, lastName, firstName, MiddleName, dateOfBirth, country, photo)
+transactions (TRANSACTIONID, date, studentID, sponsorsId, amount, donorId)
+ongs (NAME, adresse)
+workingCountrys (NAME, ong)
+articles (ID, title, summary, content, ong)
+subscribers (EMAIL, name)
+newsLetters (ID, title, content)
+newsReceptions (SUBSCRIBEREMAIL, NEWSLETTERID)
+
+/** contraintes **/
+
+sponsorsship [studentId] <= students [studentId]
+sponsorsship [donorId] <= donors [donorId]
+transactions [donorId] = sponsorsship[donorsID] not null
+transactions [studentId] = sponsorsship [studentId] not null
+workingCountry [ong] = ong [name] not null
+articles [ong] = ong [name] 
+newsReceptions [subscriberEmail] = subscribers [email]
+newsReceptions [newsLetterID] = newsLetters [id]
+
